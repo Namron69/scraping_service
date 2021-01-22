@@ -13,14 +13,19 @@
             </p>
           </div>
         </div>
+    {% empty %}
+        <h3 class="my-4 text-center">К сожалению, по Вашему запросу, ничего не найдено.</h3>
     {% endfor %}
 
-<form method="GET" action="">
-  <label>Город:</label><br>
-  <input type="text"  name="city" ><br>
-  <label >Специальность:</label><br>
-  <input type="text"  name="language" ><br>
-  <input type="submit" value="Submit">
-</form>
+<div class="row ">
+    <div class="col-md-6 mx-auto">
+    <form method="GET" action="">
+        <div class="form-group">
+        {{ form.as_p }}
+        </div>
+        <button type="submit" class="btn btn-primary">Найти</button>
+    </form>
+    </div>
+</div>
 
 {% endblock %}
