@@ -1,5 +1,6 @@
-import codecs
-import os, sys
+import os
+import sys
+
 from django.db import DatabaseError
 
 proj = os.path.dirname(os.path.abspath('manage.py'))
@@ -12,7 +13,7 @@ django.setup()
 
 from scraping.parser import *
 
-from scraping.models import Vacancy, City, Language
+from scraping.models import Vacancy, City, Language, Error
 
 parsers = (
     (work, 'https://www.work.ua/ru/jobs-kyiv-python/'),
@@ -36,6 +37,5 @@ for job in jobs:
     except DatabaseError:
         pass
 
-# h = codecs.open('work.txt', 'w', 'utf-8')
-# h.write(str(jobs))
-# h.close()
+if errors:
+    er = Error(data=errors).save()
