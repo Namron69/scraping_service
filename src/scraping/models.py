@@ -46,6 +46,7 @@ class Vacancy(models.Model):
     class Meta:
         verbose_name = 'Вакансия'
         verbose_name_plural = 'Вакансии'
+        ordering = ['-timestamp']
 
     url = models.URLField(unique=True)
     title = models.CharField(max_length=250, verbose_name='Заголовок вакансии')
