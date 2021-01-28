@@ -13,7 +13,7 @@ os.environ["DJANGO_SETTINGS_MODULE"] = "scraping_service.settings"
 import django
 django.setup()
 
-from scraping.parsers import *
+from scraping.parser import *
 from scraping.models import Vacancy, Error, Url
 
 User = get_user_model()
